@@ -1,0 +1,28 @@
+#!/bin/bash
+# Comprueba si se proporcionó un argumento
+if [ $# -eq 0 ]; then
+    echo "Por favor, proporciona una acción (start, stop, restart)"
+    exit 1
+fi
+
+ACTION=$1
+
+# Funciones para manejar el servicio y el socket de Docker
+handle_docker() {
+    if [ "$ACTION" == "stop" ] || [ "$ACTION" == "restart" ]; then
+        sudo systemctl $ACTION docker.socket
+        sudo systemctl $ACTION docker.service
+    fi
+    sudo systemctl $ACTION docker
+}
+
+case $ACTION in
+    start|stop|restart)
+        handle_docker
+        ;;
+    *)
+        echo "Acción no reconocida: $ACTION"
+        echo "Las acciones válidas son: start, stop, restart"
+        exit 1
+        ;;
+esac
