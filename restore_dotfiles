@@ -11,3 +11,4 @@ echo "HOME_USER: $HOME_USER_PATH"
 # call script move_files.sh with ROOT_PWD
 sh scripts/move_files.sh $ROOT_PWD $HOME_USER_PATH
 
+sh scripts/activate_home_bin.sh $HOME_USER_PATH
