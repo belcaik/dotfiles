@@ -1,0 +1,17 @@
+(defpoll VOLUME :interval "1s" `scripts/volume --get`)
+(defpoll VOLUMEICON :interval "1s" `scripts/volume --icon`)
+(defwidget vol []
+  (eventbox
+    
+    :onscroll "if [ '{}' == 'up' ]; then scripts/volume --inc; else scripts/volume --dec; fi"
+    :onrightclick "scripts/volume --toggle"
+    :tooltip {VOLUME == "Mute"? "Mute":"${VOLUME}%"}
+    (label
+      :class "volume"
+      :text
+      VOLUMEICON
+    )
+  )
+  
+  
+)

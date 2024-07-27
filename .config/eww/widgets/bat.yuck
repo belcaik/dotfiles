@@ -1,0 +1,18 @@
+;; WORKING BATTERY WIDGET
+(defwidget bat []
+  (box :class "battery-widget" :tooltip "Battery ${EWW_BATTERY.BAT0.status}" :visible {!!EWW_BATTERY.BAT0.capacity}
+    (box :class "battery-icon"
+      "${EWW_BATTERY.BAT0.status == "Charging"
+      ? (EWW_BATTERY.BAT0.capacity >= 80 ? "󱊦" : (EWW_BATTERY.BAT0.capacity >= 40 ? "󱊥" : "󱊤"))
+      : (EWW_BATTERY.BAT0.capacity >= 80 ? "󱊣" : (EWW_BATTERY.BAT0.capacity >= 40 ? "󱊢" : "󱊡"))
+      }"
+      
+    )
+    ; (label :class "battery-capacity" :text
+    ;   "${EWW_BATTERY.BAT0.capacity}%"
+    ; )
+  )
+)
+
+
+

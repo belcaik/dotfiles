@@ -1,0 +1,106 @@
+#!/bin/bash
+
+# check if brightnessctl is installed
+if ! command -v brightnessctl &> /dev/null
+then
+    echo "brightnessctl could not be found"
+    exit
+fi
+
+# Get the current brightness value
+get_brightness() {
+    brightnessctl -d "intel_backlight" i | grep -oP '(?<=\().*?(?=%\))'
+}
+# Get the brightness icon in ranges 7 is 100% and 1 is 1% 
+# 󰃚 : 1
+# 󰃛 : 2
+# 󰃜 : 3
+# 󰃝 : 4
+# 󰃞 : 5
+# 󰃟 : 6
+# 󰃠 : 7
+get_icon() {
+    brightness=$(get_brightness)
+    if [ "$brightness" -eq 100 ]; then
+        echo "󰃠"
+    elif [ "$brightness" -ge 90 ]; then
+        echo "󰃟"
+    elif [ "$brightness" -ge 80 ]; then
+        echo "󰃞"
+    elif [ "$brightness" -ge 70 ]; then
+        echo "󰃝"
+    elif [ "$brightness" -ge 60 ]; then
+        echo "󰃜"
+    elif [ "$brightness" -ge 50 ]; then
+        echo "󰃛"
+    else
+        echo "󰃚"
+    fi
+}
+
+# Increase brightness
+inc_brightness() {
+    brightness=$(get_brightness)
+    if [ "$brightness" -eq 100 ]; then
+        exit
+    else
+        brightnessctl set 1%+
+    fi
+} 
+
+# Decrease brightness
+dec_brightness() {
+    
+    brightness=$(get_brightness)
+    # check if brightness is 1% or if brightness - 2 is 0 or lower
+    if [ "$brightness" -eq 1 ] || [ "$((brightness - 2))" -le 0 ]; then
+        brightnessctl set 1%
+        exit
+    else 
+        brightnessctl set 1%-
+    fi
+}
+
+# Set brightness
+set_brightness() {
+
+    # check if the argument is a number, 
+    if ! [[ "$1" =~ ^[0-9]+$ ]]; then
+        echo "Argument must be a number"
+        exit
+    fi
+
+
+    # if greater than 101 set as 100% 
+    if [ "$1" -gt 100 ]; then
+        brightnessctl set 100%
+        exit
+    fi    
+    # if eq or lower than 0 set 1%
+    if [ "$1" -le 0 ]; then
+        brightnessctl set 1%
+        exit
+    fi
+    brightnessctl set "$1"%
+}
+
+# Execute accordingly
+case "$1" in
+    "--inc")
+        inc_brightness
+        ;;
+    "--dec")
+        dec_brightness
+        ;;
+    "--set")
+        set_brightness "$2"
+        ;;
+    "--icon")
+        get_icon
+        ;;
+    *)
+        get_brightness
+        ;;
+esac
+
+# End of script

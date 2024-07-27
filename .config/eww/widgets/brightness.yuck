@@ -1,0 +1,14 @@
+(defpoll BRIGHTNESS :interval "10s" `scripts/brightness --get`)
+(defpoll BRIGHTNESSICON :interval "10s" `scripts/brightness --icon`)
+; deflisten
+
+
+(defwidget bright []
+  (eventbox :class "brightness-status"
+    :tooltip "${BRIGHTNESS}%"    
+    :onscroll "if [ '{}' == 'up' ]; then scripts/brightness --inc; else scripts/brightness --dec; fi"
+    
+    (label :class "brightness-status-icon" :text BRIGHTNESSICON)
+    
+  )
+)

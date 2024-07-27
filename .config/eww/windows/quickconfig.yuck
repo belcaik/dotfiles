@@ -1,0 +1,144 @@
+(defwindow quickconfig[]
+  :stacking "fg"
+  ; :exclusive true
+  :windowtype "normal"
+  :class "statusbar"
+  :wm-ignore true
+  ; :reserve (struts :distance "4%" :side "top")
+  :wm-hints (:skip-taskbar true
+  :skip-pager true)
+  :geometry (geometry
+    :x "68.5%"
+    :y "5%"
+    :width "30%"
+  :height "40%")
+  
+  (quickconfigLayout)
+  
+)
+
+(defwidget quickconfigLayout []
+  
+  
+  (box
+    :orientation "v"
+    :class "quickconfig-container"
+    (box
+      :orientation "h"
+      (box
+        :class "quickconfig-controls-layout"
+        :orientation "v"
+        ; :spacing 20
+        (box
+          :orientation "h"
+          :spacing -60
+          
+          :class "quickconfig-controls-layout-left"
+          (quickControlSlider
+            :name "volumen"
+            :icon "lv"
+            :min 0
+            :max 100
+            :value 18
+            :onchange "scripts/volume --set"
+          )
+          (quickControlSlider
+            :name "brillo"
+            :icon "lb"
+            :min 0
+            :max 100
+            :value 39
+            :onchange "scripts/volume --set"
+          )
+          
+        )
+        (box
+          :orientation "h"
+          :spacing -60
+          (quickControlSlider
+            :name "bateria"
+            :icon "bat"
+            :min 0
+            :max 100
+            :value 98
+            :onchange "scripts/volume --set"
+          )
+          (quickControlSlider
+            :name "wifi"
+            :icon "wi"
+            :min 0
+            :max 100
+            :value 50
+            :onchange "scripts/volume --set"
+          )
+          
+        )
+      )
+      
+      (box
+        :orientation "v"
+        ; spotify widget
+        (soundOutputSelector)
+        (quickButtonsToggle)
+      )
+    )
+    (musicQuickControl)
+  ))
+
+(defwidget quickButtonsToggle []
+  
+  
+  
+  (box
+    :class "quickconfig-button-toggle-layout"
+    :spacing 10
+    (box
+      :orientation "v"
+      :spacing 10
+      (eventbox
+        :class "quickconfig-button-toggle"
+        "󱛅"
+      )
+      (eventbox
+        :class "quickconfig-button-toggle"
+        "󰂯"
+      )
+      
+      
+    )
+    (box
+      :orientation "v"
+      :spacing 10
+      (eventbox
+        :class "quickconfig-button-toggle"
+        ""
+        
+      )
+      (eventbox
+        :class "quickconfig-button-toggle"
+        ""
+        
+      )
+    )
+  ))
+
+(defwidget wifiSelector []
+  (box
+    "k"
+    
+    
+  )
+)
+
+(defwidget soundOutputSelector []
+  (box
+    :orientation "h"
+    "alo"
+    ; (combo-box-text
+      ;   ; :value "Speakers"
+      ;  :items "headphones"
+      ; ;  :onchange "scripts/volume --set"
+      
+    ; )
+  )
+)

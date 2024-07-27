@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Directorio de caché de Spotify
+cache_dir="$HOME/.cache/spotify/Data"
+
+# Verifica si el directorio existe
+if [ ! -d "$cache_dir" ]; then
+    echo "El directorio de caché de Spotify no existe."
+    exit 1
+fi
+
+# Buscar archivos recientes y de tamaño razonable para una imagen
+latest_file=$(find "$cache_dir" -type f -size +5k -exec file --mime-type {} + | grep -E 'image/(jpeg|png)' | sort -t ' ' -k 2 -r | head -n 1 | cut -d':' -f1)
+
+# Verifica si se encontró un archivo
+if [ -z "$latest_file" ]; then
+    echo "No se encontró ningún archivo de caché válido."
+    exit 1
+fi
+
+# Imprime la ruta absoluta del archivo de caché más reciente
+eww update nowPlayingArt="$latest_file"
+
+
+# #!/bin/bash
+
+# # Directorio de caché de Spotify
+# cache_dir="$HOME/.cache/spotify/Data"
+
+# # Verifica si el directorio existe
+# if [ ! -d "$cache_dir" ]; then
+#     echo "El directorio de caché de Spotify no existe."
+#     exit 1
+# fi
+
+# # Busca el archivo de imagen más reciente modificado en el directorio de caché
+# latest_image=$(find "$cache_dir" -type f -exec file --mime-type {} + | grep -E 'image/(jpeg|png)' | cut -d: -f1 | xargs ls -t | head -n 1)
+
+# # Verifica si se encontró un archivo
+# if [ -z "$latest_image" ]; then
+#     echo "No se encontró ningún archivo de caché válido."
+#     exit 1
+# fi
+
+# # Imprime la ruta absoluta del archivo de caché más reciente
+# echo "Archivo de artwork encontrado: $latest_image"

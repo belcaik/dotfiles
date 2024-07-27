@@ -1,0 +1,17 @@
+(defwidget sysinfo []
+  (eventbox
+    :class "sysinfo"
+    :halign "end"
+    :onclick "eww open --toggle quickconfig"
+    
+    (box
+      ; :spacing "-20"
+      ; :space-evenly true
+      ; :orientation "v"
+      (bright)
+      (vol)
+      (netStatus)
+      (bat)
+    )
+  )
+)

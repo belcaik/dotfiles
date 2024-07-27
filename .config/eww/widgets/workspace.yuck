@@ -1,0 +1,24 @@
+; eww is natively able to parse the JSON output of `leftwm-state`
+; since eww also has the ability of `for` loops there is no need for a `liquid` template anymore
+(deflisten wmstate
+  :initial '{"workspaces":[{"layout":"","tags":[{"name":"","index":0,"mine":false,"busy":false,"visible":false,"urgent":false}]}]}'
+"leftwm state")
+
+(defwidget workspace [wsIdx]
+  (box :class "workspaces"
+    :orientation "h"
+    :halign "start"
+    (box :class "ws-container"
+      (for tag in '${wmstate.workspaces[wsIdx].tags}'
+        (eventbox :class {tag.mine ? "ws-button-mine" :
+          tag.visible ? "ws-button-visible" :
+          tag.urgent ? "ws-button-urgent" :
+          tag.busy ? "ws-button-busy" : "ws-button"}
+          :onclick "leftwm-command \"SendWorkspaceToTag ${wsIdx} ${tag.index}\""
+          (label :class "ws-label"
+            :text
+            {!tag.mine && !tag.busy && !tag.visible && !tag.urgent ?  "" : "${tag.name}"}
+          )
+          
+          
+        )))))

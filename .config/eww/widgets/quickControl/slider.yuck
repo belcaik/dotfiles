@@ -1,0 +1,26 @@
+(defwidget quickControlSlider
+  [name icon min max value onchange ]
+  (box
+    :class "quick-control-slider-container"
+    ; :width "1%"
+    (eventbox
+
+      :class "quick-control-slider-eventbox"
+      :onscroll "if [ '{}' == 'up' ]; then value=value+1; else value=value-1; fi"
+      
+    (box
+      :class "quick-control-slider-box"
+      (circular-progress
+        
+        :class "quick-control-slider-circular-progress"
+        :value value
+        :thickness 15
+        "${icon}"
+      )
+    )
+      
+      
+    )
+  )
+)
+

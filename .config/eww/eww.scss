@@ -1,0 +1,275 @@
+* {
+    all: unset;
+}
+
+.statusbar {
+    background-color: transparent;
+
+    &-right {
+        // spacing: 20;
+    }
+}
+
+.statusbarSecondary {
+    background-color: transparent;
+}
+
+.clock {
+    // estilos para el reloj
+    font-size: larger;
+    background-color: #24283b;
+    padding: 0 0.5em 0 0.5em;
+    border: 0.1em solid #9d7cd8;
+}
+
+.volume {
+    margin-right: -0.2em;
+    font-size: xx-large;
+
+}
+
+.brightness {
+    &-status-icon {
+        margin-right: -0.78em;
+        // padding: 0 0.3em 0 0.8em;
+        // estilos para el icono de brillo
+        font-size: x-large;
+    }
+}
+
+.network {
+    &-status-icon {
+        margin-right: 0.3em;
+        // padding: 0 0.2em 0 0.4em;
+        // estilos para el icono de red
+        font-size: x-large;
+    }
+
+
+}
+
+.battery-widget {
+    // estilos para el contenedor del widget
+    // background-color: #24283b;
+    // padding: 0 em 0 0;
+    // border: 0.1em solid #9d7cd8;
+
+    .battery-icon {
+        // padding: 0 0.5em 0 0.2em;
+        margin-right: 0.8em;
+
+        // estilos para el icono de la batería
+        font-size: x-large;
+    }
+
+    .battery-capacity {
+        // estilos para el porcentaje de capacidad de la batería
+        // font-size: medium;
+    }
+}
+
+.quickconfig {
+    &-container {
+        background-color: #24283b;
+        // padding: 0 1em 0 1em;
+        border: 0.1em solid #9d7cd8;
+        // padding: 2em 0 0 0;
+    }
+
+    &-button-toggle-layout {
+        margin-bottom: -3em;
+        padding: 0 3em 0 3em;
+    }
+
+    &-controls-layout {
+        // margin-top: 1em;
+        // margin-left: -em;
+        margin-bottom: -4em;
+        margin-right: -3em;
+    }
+
+    &-button-toggle {
+        // font-size: xx-large;
+        // margin-left: -1em;
+        border-radius: 100%;
+        background-color: #9d7cd8;
+        border: 0.1em solid #9d7cd8;
+    }
+
+    &-button-toggle:hover {
+        background-color: #24283b;
+        color: #9d7cd8;
+    }
+
+    &-button-toggle label {
+        font-size: xx-large;
+        margin-left: -0.2em;
+    }
+    &-music {
+        // max-width: ;
+        &-info-controls {
+            min-width: 19.5em;
+            margin-right: 0.5em;
+        }
+        &-player {
+            // background-color: #7aa2f7;
+        }
+        &-album-art{
+            // background-image: url("file:///home/belcaik/.config/leftwm/themes/current/wallpaper.jpg");
+            // background-size: cover;
+            // background-position: center;
+            background-size: contain;
+            background-position: center;
+            
+        }
+        &-info label{
+            // text-align: start;
+            font-size: large;
+            margin-bottom: -12em;
+        }
+        &-controls{
+    
+            // background-color: #c3e88d;
+            font-size: xx-large;
+            // min-width: 20em;
+        }
+        &-controls label{
+            margin-bottom: -1em;
+        }
+    }
+    
+}
+.albumart {
+    background-size: cover;
+    background-position: center;
+    // min-height: 100px;
+    // min-width: 100px;
+    // margin: 12px;
+    // border-radius: 15px;
+}
+.quick-control {
+    &-slider {
+        &-container {
+            // border: 0.1em solid #9d7cd8;
+            // align-items: center;
+            // margin-left: -10em;
+        }
+
+        &-eventbox {
+            padding: 0.5em;
+            // border: 0.1em solid #9d7cd8;
+            // padding: 0.5em;
+
+        }
+
+        &-box {
+            // background-color: #c3e88d;
+            // background-color: #24283b;
+            padding: 0.5em 0 0.5em 0;
+            // border: 0.1em solid #9d7cd8;
+        }
+
+        &-circular-progress {
+            background-color: #7aa2f7;
+            color: #9d7cd8;
+            // background-color: #24283b;
+            // padding: 0.5em;
+        }
+
+        &-circular-progress label {
+            // padding: 0.
+            color: #41a6b5;
+            font-weight: bold;
+            font-size: xx-large;
+        }
+    }
+}
+
+.sysinfo {
+    // padding: 0 1em 1em 1em;
+    background-color: #24283b;
+    padding: 0 1em 0 1em;
+    border: 0.1em solid #9d7cd8;
+    // margin-left: 1em;
+
+    &:hover {
+        background-color: #9d7cd8;
+        color: #24283b;
+    }
+
+    &:active {
+        background-color: #9d7cd8;
+        color: #24283b;
+    }
+}
+
+// workspace widget
+.workspaces {
+    // estilos para el contenedor de los espacios de trabajo
+    background-color: transparent;
+    border: 0.1em solid #9d7cd8;
+    font-family: monospace;
+    font-size: large;
+
+    .ws {
+        &-container {
+            background-color: #24283b;
+        }
+
+        &-label {
+            padding: 0 1em 0 1em;
+        }
+
+        &-button {
+            color: #9d7cd8;
+
+            &:hover {
+                background-color: #9d7cd8;
+                color: #24283b;
+            }
+
+            &-mine {
+                background-color: #41a6b5;
+                color: #1E1E1E;
+
+                &:hover {
+                    background-color: #9d7cd8;
+                    color: #24283b;
+                }
+            }
+
+            &-visible {
+                color: #c3e88d;
+                background-color: transparent;
+
+                &:hover {
+                    background-color: #9d7cd8;
+                    color: #24283b;
+                }
+
+            }
+
+            &-urgent {
+                color: #ff007c;
+                background-color: transparent;
+
+                &:hover {
+                    background-color: #9d7cd8;
+                    color: #24283b;
+                }
+            }
+
+            &-busy {
+                background-color: transparent;
+                color: #7aa2f7;
+
+                &:hover {
+                    background-color: #9d7cd8;
+                    color: #24283b;
+                }
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,17 @@
+(defpoll NET_STATUS :interval "10s" `scripts/network --get`)
+
+(defwidget netStatus []
+  
+  (box :class "network-status-icon"
+    
+    ; ethernet: 󰈀
+    ; wifi: 󰖩
+    ; disconnect: 󰌙
+    {
+    NET_STATUS == "wifi" ? "󰖩" : 
+    NET_STATUS == "ethernet" ? "󰈀" 
+    : "󰌙"
+    }
+    
+  )
+)

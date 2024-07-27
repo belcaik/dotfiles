@@ -1,0 +1,65 @@
+
+
+(defwindow statusbar
+  :stacking "fg"
+  :exclusive true
+  :windowtype "dock"
+  :class "statusbar"
+  :wm-ignore false
+  :reserve (struts :distance "4%" :side "top")
+  :wm-hints (:skip-taskbar true
+  :skip-pager true)
+  :geometry (geometry
+    :x "1%"
+    :y "0.5%"
+    :width "98%"
+  :height "3.5%")
+  (statusbar_layout)
+)
+
+(defwidget statusbar_layout []
+  (centerbox :class "statusbar-layout"
+    (statusbar_left)
+    (statusbar_center)
+    (statusbar_right)
+  )
+)
+
+
+(defwidget statusbar_left []
+(box :halign "start" :class "statusbar-left"
+)
+)
+
+(defwidget statusbar_center []
+  (box :halign "center" :class "statusbar-center"
+    
+  (workspace :wsIdx 0)
+  
+  ))
+  
+  (defwidget statusbar_right []
+    (box :halign "end" :class "statusbar-right" 
+      (clock)
+      (sysinfo)
+    )
+)
+;(
+;  EWW_BATTERY.BAT0.capacity <= 30? "󱊡" : "󱊢"
+;))
+
+;; BACKGROUND WIDGET EXAMPLE
+; (defwindow bgWidget
+  ;   :stacking "bg"
+  ;   :windowtype "Desktop"
+  ;   :wm-ignore false
+  ;   :wm-hints (:skip-taskbar true
+    ;     :skip-pager true
+    ;     :below true
+  ;   :sticky true)
+  ;   :geometry (geometry
+    ;     :x "50%"
+    ;     :y "50%" ;CENTERED
+    ;     :width "10%"
+  ;   :height "5%")
+  ;   (powermenu_layout))

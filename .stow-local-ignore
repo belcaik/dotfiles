@@ -1,0 +1,13 @@
+docs
+LICENSE
+README.*
+.git
+.gitignore
+
+.config/pulse
+spotify/
+Bitwarden/
+Code/
+discord/
+dconf/
+google-chrome/

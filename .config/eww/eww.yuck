@@ -1,0 +1,14 @@
+; WIDGETS
+(include "./widgets/bat.yuck")
+(include "./widgets/volume.yuck")
+(include "./widgets/netStat.yuck")
+(include "./widgets/brightness.yuck")
+(include "./widgets/workspace.yuck")
+(include "./widgets/clock.yuck")
+(include "./widgets/sysinfo.yuck")
+(include "./widgets/quickControl/slider.yuck")
+(include "./widgets/music.yuck")
+; WINDOWS
+(include "./windows/statusbar.yuck")
+(include "./windows/statusbar2.yuck")
+(include "./windows/quickconfig.yuck")

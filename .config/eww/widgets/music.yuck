@@ -1,0 +1,113 @@
+(defpoll nowPlayingTitle :interval "1s" "scripts/music title")
+(defpoll nowPlayingArtist :interval "1s" "scripts/music artist")
+(defpoll nowPlayingAlbum :interval "1s" "scripts/music album")
+
+(defpoll nowPlayingStatusIcon :interval "1s" "scripts/music statusicon")
+; (defpoll nowPlayingArt :interval "60s" "scripts/music arturl")
+(defvar nowPlayingArt "broken")
+
+
+
+
+
+(defwidget musicQuickControl []
+  (box
+    :class "quickconfig-music-player"
+    :orientation "h"
+    :width "100%"
+    :hexpand "false"
+    :vexpand "false"
+
+    (box
+      :width "50%"
+      (box
+        ; :style "background-image: url(`https://avatars.githubusercontent.com/u/92741841?v=4`);background-size: cover;background-position: center;"
+        ; :class "quickconfig-music-albumart"
+        :class "album-art" :width "10%" :height "10%" :vexpand "false" :hexpand "false" :style "background-image: url('${nowPlayingArt}');" 
+        ; (label :text "'${nowPlayingArt}'")
+      (label :text "${nowPlayingArt}")
+      )
+      
+      ; {}
+    )
+    (box :orientation "v"
+    :hexpand "true"
+    :vexpand "true"
+    :class "quickconfig-music-info-controls"
+
+    :width "50%"
+      :halign "start"
+      (box
+        :width "100%"
+        :height "50%"
+        :orientation "v"
+        :vexpand "true"
+        :hexpand "true"
+        :halign "start"
+        :valign "start"
+        :spacing -66
+        :class "quickconfig-music-info"
+        ; {nowPlayingTitle}{nowPlayingArtist}{nowPlayingAlbum}
+        (label
+          :halign "start"
+          :hexpand "true"
+            :vexpand "true"
+        :text nowPlayingTitle)
+        (label
+          :halign "start"
+          
+          :hexpand "true"
+            :vexpand "true"
+
+          
+        :text nowPlayingArtist)
+        (label
+          :halign "start"
+          :hexpand "true"
+            :vexpand "false"
+          
+        :text nowPlayingAlbum)
+      )
+      (box :orientation "h"
+      :spacing 30
+        :width "100%"
+        :height "50%"
+           :vexpand "true"
+        :hexpand "true"
+        :class "quickconfig-music-controls"
+        
+        (eventbox 
+            :width "100%"
+        :height "50%"
+           :vexpand "true"
+        :hexpand "true"
+            
+            :onclick "scripts/music previous" "󰒮")
+        (eventbox :onclick "scripts/music toggle" "${nowPlayingStatusIcon}")
+        (eventbox :onclick "scripts/music next" "󰒭")
+      )
+      
+    )
+  ))
+
+
+
+; (defwidget music []
+  ;   (box	:orientation "h"
+    ;     (box	:class "albumart" :vexpand "false" :hexpand "false" :style "background-image: url('${art}');")
+    ;     (box	:orientation "v" :valign "top" :space-evenly "false" :class "musicfont" :spacing 10
+      ;       (box :space-evenly "false" :orientation "v" :spacing 3
+        ;         (label	:class "title"		:limit-width 15 		:text title )
+        ;         (label	:class "album"		:limit-width 15			:text album)
+        ;         (label	:class "artist"		:limit-width 15			:text artist))
+      ;       (box	:orientation "h"	:class "playerfont"
+        ;         (button	:class "green" 		:onclick "../scripts/music previous" "󰒮")
+        ;         (button	:class "purple"		:onclick "../scripts/music toggle" playpause)
+        ;         (button	:class "green" 		:onclick "../scripts/music next" "󰒭")
+      ;     ))))
+
+; (defpoll title		:interval "1s"  "../scripts/music title")
+; (defpoll artist		:interval "1s"  "../scripts/music artist")
+; (defpoll album		:interval "1s"  "../scripts/music album")
+; (defpoll playpause	:interval "1s"  "../scripts/music statusicon")
+; (defpoll art		:interval "1s"  "../scripts/music coverloc")

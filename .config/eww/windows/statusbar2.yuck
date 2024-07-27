@@ -1,0 +1,23 @@
+(defwindow statusbarSecondary
+    :stacking "fg"
+    :exclusive true
+    :windowtype "dock"
+    :class "statusbarSecondary"
+    :wm-ignore false
+    :reserve (struts :distance "4%" :side "top")
+    :wm-hints (:skip-taskbar true
+    :skip-pager true)
+    :geometry (geometry
+      :x "1%"
+      :y "0.5%"
+      :width "98%"
+    :height "3.5%")
+    (workspace :wsIdx 1)
+  )
+  
+;   (defwidget statusbar_layout2 []
+
+;       (workspace :wsIdx 1)
+   
+   
+;   )

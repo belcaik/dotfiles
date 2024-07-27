@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Get Volume
+get_volume() {
+	status=`amixer get Master | tail -n1 | grep -wo 'on'`
+
+	if [[ "$status" == "on" ]]; then
+		volume=`amixer get Master | tail -n1 | awk -F ' ' '{print $5}' | tr -d '[]%'`
+		echo "$volume"
+	else
+		echo "Mute"
+	fi
+}
+
+# Get icons
+get_icon() {
+	vol="$(get_volume)"
+	current="${vol%%%}"
+	status=`amixer get Master | tail -n1 | grep -wo 'on'`
+
+	if [[ "$status" == "on" ]]; then
+		if [[ "$current" -eq "0" ]]; then
+			echo "󰝟" # Mute
+		elif [[ ("$current" -ge "0") && ("$current" -le "30") ]]; then
+			echo "󰕿" # Low Volume
+		elif [[ ("$current" -ge "30") && ("$current" -le "60") ]]; then
+			echo "󰖀" # Medium Volume
+		elif [[ ("$current" -ge "60") && ("$current" -le "100") ]]; then
+			echo "󰕾" # High Volume
+		fi
+	else
+		echo "󰝟"
+	fi
+}
+
+# Increase Volume
+inc_volume() {
+	pactl set-sink-volume @DEFAULT_SINK@ +1%
+}
+
+# Decrease Volume
+dec_volume() {
+	pactl set-sink-volume @DEFAULT_SINK@ -1%
+}
+
+set_volume() {
+	pactl set-sink-volume @DEFAULT_SINK@ "$1"
+}
+# Toggle Mute
+toggle_mute() {
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+}
+
+# Execute accordingly
+if [[ "$1" == "--get" ]]; then
+	get_volume
+elif [[ "$1" == "--icon" ]]; then
+	get_icon
+elif [[ "$1" == "--inc" ]]; then
+	inc_volume
+elif [[ "$1" == "--dec" ]]; then
+	dec_volume
+elif [[ "$1" == "--toggle" ]]; then
+	toggle_mute
+elif [[ "$1" == "--set" ]]; then
+	set_volume "$2" 
+else
+	get_volume
+fi

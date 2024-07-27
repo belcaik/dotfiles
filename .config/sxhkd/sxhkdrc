@@ -1,0 +1,24 @@
+# /etc/sxhkd/sxhkdrc
+
+# Volume settings
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +1%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -1%
+
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioMicMute
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# screenshot
+Print
+    flameshot gui
+
+XF86MonBrightnessDown
+    brightnessctl s 5%-
+
+XF86MonBrightnessUp
+    brightnessctl s 5%+

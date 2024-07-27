@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# This script is used to get the current playing song from mpd and display it in eww
+
+player_source="spotify"
+
+get_spotify_song() {
+    playerctl -p $player_source metadata --format "{{ title }}"
+}
+
+get_spotify_artist() {
+    playerctl -p $player_source metadata --format "{{ artist }}"
+}
+
+get_spotify_album() {
+    playerctl -p $player_source metadata --format "{{ album }}"
+}
+
+get_spotify_status() {
+    playerctl -p $player_source status
+}
+
+#         echo "󰏤"
+#         echo "󰐊" 
+get_spotify_status_icon() {
+    if [ "$(playerctl -p $player_source status)" = "Playing" ]; then
+        echo "󰏤"
+    else
+        echo "󰐊"
+    fi
+}
+
+spotify_play_pause() {
+    playerctl -p $player_source play-pause
+}
+
+spotify_next() {
+    playerctl -p $player_source next
+}
+
+spotify_previous() {
+    playerctl -p $player_source previous
+}
+
+spotify_download_art() {
+    art_url=$(playerctl -p $player_source metadata mpris:artUrl)
+    wget -O /tmp/spotify_art.jpg $art_url
+}
+
+get_spotify_art_url() {
+    # playerctl -p $player_source metadata mpris:artUrl
+    spotify_download_art
+    echo "broken"
+}
+
+case $1 in
+    title)
+        get_spotify_song
+        ;;
+    artist)
+        get_spotify_artist
+        ;;
+    album)
+        get_spotify_album
+        ;;
+    arturl)
+        get_spotify_art_url
+        ;;
+    status)
+        get_spotify_status
+        ;;
+    statusicon)
+        get_spotify_status_icon
+        ;;
+    toggle)
+        spotify_play_pause
+        ;;
+    next)
+        spotify_next
+        ;;
+    previous)
+        spotify_previous
+        ;;
+    downloadArt)
+        spotify_download_art
+        ;;
+    *)
+        echo "Invalid argument"
+        ;;
+esac
+
+# This script is used to get the current playing song from mpd and display it in ewws

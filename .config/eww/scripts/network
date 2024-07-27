@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# This script is called by udev when a network got added or removed
+# call eww update NET_STATUS variable to set the correct icon
+# get the current status of the network and the type of network
+# the three ouput can be "disconnect", "ethernet" or "wifi"
+# if wifi is connected, get the current level of signal
+# the output can be "0", "1", "2", "3" or "4"
+
+
+#!/bin/bash
+
+# Get network status
+NETWORK_STATUS=$(nmcli -t -f DEVICE,TYPE,STATE dev | grep -E 'connected|disconnected|unavailable' | awk -F: '{if ($2 == "wifi" && $3 == "connected") print "wifi"; else if ($2 == "ethernet" && $3 == "connected") print "ethernet"; else print "disconnect"}' | head -n 1)
+
+# If WiFi is connected, get the signal level and convert it to a number between 1 and 4, where 1 is the lowest signal level and 4 is the highest and 0 is for ethernet or disconnected
+# get arguments from the command line, if --get is passed, return the network status and signal level
+if [[ $1 == "--get" ]]; then
+    echo "$NETWORK_STATUS"
+fi
