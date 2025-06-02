@@ -1,19 +1,19 @@
 # /etc/sxhkd/sxhkdrc
 
-# Volume settings
+# Volume settingsa
+
+# Volume settings for PipeWire
 XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +1%
+    wpctl set-volume @DEFAULT_SINK@ 5%+ && wpctl get-volume @DEFAULT_SINK@
 
 XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -1%
+    wpctl set-volume @DEFAULT_SINK@ 5%- && wpctl get-volume @DEFAULT_SINK@
 
 XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    wpctl set-mute @DEFAULT_SINK@ toggle
 
 XF86AudioMicMute
-    pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
-# screenshot
+    wpctl set-mute @DEFAULT_SOURCE@  toggle
 Print
     flameshot gui
 

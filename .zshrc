@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -743,3 +743,15 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 PATH=~/.console-ninja/.bin:$PATH
+
+# pnpm
+export PNPM_HOME="/home/belcaik/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

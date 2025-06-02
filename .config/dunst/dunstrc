@@ -84,21 +84,21 @@
     browser = /usr/bin/firefox -new-tab
     frame_width = 2
     # color = "#00c3ff"
-    script = /home/belcaik/.config/dunst/notify-script
+    # script = /home/belcaik/.config/dunst/notify-script
 
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the '#' and following  would be interpreted as a comment.
 background = "#0E323D"
 foreground = "#7BA8B5"
-timeout = 50000
+timeout = 3
 
 [urgency_normal]
 background = "#E3AD0B"
 foreground = "#524218"
-timeout = 50
+timeout = 3
 
 [urgency_critical]
 background = "#BA3220"
 foreground = "#F0D1C5"
-timeout = 50
+timeout = 0

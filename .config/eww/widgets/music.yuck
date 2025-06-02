@@ -1,94 +1,24 @@
-(defpoll nowPlayingTitle :interval "1s" "scripts/music title")
-(defpoll nowPlayingArtist :interval "1s" "scripts/music artist")
-(defpoll nowPlayingAlbum :interval "1s" "scripts/music album")
 
-(defpoll nowPlayingStatusIcon :interval "1s" "scripts/music statusicon")
 ; (defpoll nowPlayingArt :interval "60s" "scripts/music arturl")
 (defvar nowPlayingArt "broken")
 
-
-
-
-
 (defwidget musicQuickControl []
-  (box
-    :class "quickconfig-music-player"
-    :orientation "h"
-    :width "100%"
-    :hexpand "false"
-    :vexpand "false"
-
-    (box
-      :width "50%"
-      (box
-        ; :style "background-image: url(`https://avatars.githubusercontent.com/u/92741841?v=4`);background-size: cover;background-position: center;"
-        ; :class "quickconfig-music-albumart"
-        :class "album-art" :width "10%" :height "10%" :vexpand "false" :hexpand "false" :style "background-image: url('${nowPlayingArt}');" 
-        ; (label :text "'${nowPlayingArt}'")
-      (label :text "${nowPlayingArt}")
-      )
-      
-      ; {}
+  
+  (box :class "musicQuickControl"
+    :halign "center"
+    :valign "center"
+    (box :orientation "h"
+      (button :class "green" :onclick "echo 'prev'" "󰒮")
+      (button :class "purple" :onclick "echo 'prev'" "p")
+      (button :class "green" :onclick "echo 'prev'" "󰒭")
     )
-    (box :orientation "v"
-    :hexpand "true"
-    :vexpand "true"
-    :class "quickconfig-music-info-controls"
-
-    :width "50%"
-      :halign "start"
-      (box
-        :width "100%"
-        :height "50%"
-        :orientation "v"
-        :vexpand "true"
-        :hexpand "true"
-        :halign "start"
-        :valign "start"
-        :spacing -66
-        :class "quickconfig-music-info"
-        ; {nowPlayingTitle}{nowPlayingArtist}{nowPlayingAlbum}
-        (label
-          :halign "start"
-          :hexpand "true"
-            :vexpand "true"
-        :text nowPlayingTitle)
-        (label
-          :halign "start"
-          
-          :hexpand "true"
-            :vexpand "true"
-
-          
-        :text nowPlayingArtist)
-        (label
-          :halign "start"
-          :hexpand "true"
-            :vexpand "false"
-          
-        :text nowPlayingAlbum)
-      )
-      (box :orientation "h"
-      :spacing 30
-        :width "100%"
-        :height "50%"
-           :vexpand "true"
-        :hexpand "true"
-        :class "quickconfig-music-controls"
-        
-        (eventbox 
-            :width "100%"
-        :height "50%"
-           :vexpand "true"
-        :hexpand "true"
-            
-            :onclick "scripts/music previous" "󰒮")
-        (eventbox :onclick "scripts/music toggle" "${nowPlayingStatusIcon}")
-        (eventbox :onclick "scripts/music next" "󰒭")
-      )
-      
-    )
-  ))
+    (label :class "title" :text "Song") 
+    (label :class "artist" :text "your mom" )
+    (label :class "album" :text " aa" )
+    
+  )
+  
+)
 
 
 

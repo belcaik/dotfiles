@@ -1,17 +1,30 @@
+(deflisten SYSINFO :initial '{"battery":{"level":"100%","status":"Charging","icon":"󰁹"},"brightness":{"level":"0%","status":"On","icon":"󰃚"},"volume":{"level":"10%","status":"low","icon":"󰝞"},"wifi":{"level":"","status":"Connecting","icon":"󰖩"},"bluetooth":{"level":"-","status":"-","icon":"-"}}' "/home/belcaik/Dev/SabiStat/target/release/SabiStat --notifarea")
 (defwidget sysinfo []
-  (eventbox
+  (box
     :class "sysinfo"
-    :halign "end"
-    :onclick "eww open --toggle quickconfig"
-    
-    (box
-      ; :spacing "-20"
-      ; :space-evenly true
-      ; :orientation "v"
-      (bright)
-      (vol)
-      (netStatus)
-      (bat)
+    :halign "start"
+    :spacing 15
+    (label :text "${SYSINFO.brightness.icon}"
+      :class "brightness"
+      ; :hexpand false
+      :halign "end"
+      :tooltip "${SYSINFO.brightness.level}"
     )
+    (label :text "${SYSINFO.volume.icon}"
+      :class "volume"
+      :halign "end"
+      :tooltip "${SYSINFO.volume.level} ${SYSINFO.volume.status}"
+    )
+    (label :text "${SYSINFO.wifi.icon}"
+      :class "wifi"
+      :halign "end"
+      :tooltip "${SYSINFO.wifi.level} ${SYSINFO.wifi.status}"
+    )
+    (label :text "${SYSINFO.battery.icon}"
+      :class "battery"
+      :halign "end"
+      :tooltip "${SYSINFO.battery.level} ${SYSINFO.battery.status}"
+    )
+    
   )
 )

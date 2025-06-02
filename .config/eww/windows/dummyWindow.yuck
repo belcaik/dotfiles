@@ -1,0 +1,22 @@
+(defwindow dummy-window[]
+    :stacking "fg"
+    ; :exclusive true
+    :windowtype "normal"
+    ; :class "statusbar"
+    :wm-ignore true
+    ; :reserve (struts :distance "4%" :side "top")
+    :wm-hints (:skip-taskbar true
+    :skip-pager true)
+    :geometry (geometry
+      :x "68.5%"
+      :y "5%"
+      :width "30%"
+    :height "40%")
+    
+    (box
+    
+    
+    "ayo this is a dummy window"
+    )
+    
+  )

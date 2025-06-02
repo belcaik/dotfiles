@@ -17,9 +17,12 @@ if [ -z "$latest_file" ]; then
     echo "No se encontró ningún archivo de caché válido."
     exit 1
 fi
+player_source="spotify"
 
 # Imprime la ruta absoluta del archivo de caché más reciente
-eww update nowPlayingArt="$latest_file"
+eww update nowPlayingArt="$latest_file" 
+# ART_URL=$(playerctl -p $player_source metadata --format "{{ mpris:artUrl }}")
+# eww update nowPlayingArt="$ART_URL"
 
 
 # #!/bin/bash

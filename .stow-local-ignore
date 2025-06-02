@@ -3,7 +3,7 @@ LICENSE
 README.*
 .git
 .gitignore
-
+pavucontrol.ini
 .config/pulse
 spotify/
 Bitwarden/

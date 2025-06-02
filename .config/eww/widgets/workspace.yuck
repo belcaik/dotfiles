@@ -7,18 +7,24 @@
 (defwidget workspace [wsIdx]
   (box :class "workspaces"
     :orientation "h"
-    :halign "start"
-    (box :class "ws-container"
+    :halign "center"
+    (box
+      :class "ws-container"
+      :orientation "h"
+      :halign "center"
       (for tag in '${wmstate.workspaces[wsIdx].tags}'
-        (eventbox :class {tag.mine ? "ws-button-mine" :
+        (button
+          :class {tag.mine ? "ws-button-mine" :
           tag.visible ? "ws-button-visible" :
           tag.urgent ? "ws-button-urgent" :
           tag.busy ? "ws-button-busy" : "ws-button"}
+          :width 60
           :onclick "leftwm-command \"SendWorkspaceToTag ${wsIdx} ${tag.index}\""
-          (label :class "ws-label"
-            :text
-            {!tag.mine && !tag.busy && !tag.visible && !tag.urgent ?  "" : "${tag.name}"}
-          )
+          :halign "center"
+          {!tag.mine && !tag.busy && !tag.visible && !tag.urgent ?  "" : "${tag.name}"}
           
-          
-        )))))
+        )
+      )
+    )
+  )
+)

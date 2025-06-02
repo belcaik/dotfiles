@@ -1,7 +1,7 @@
 (
-    margin: (5, 5, 5, 5),
+    margin: (3, 3, 3, 3),
     border_width: 1,
-    default_border_color: "#3d59a1",
-    focused_border_color: "#9d7cd8",
-    workspace_margin: (0, 15, 0, 15)
+    default_border_color: "#31363F",
+    focused_border_color: "#76ABAE",
+    workspace_margin: (0, 10, 0, 10)
 )

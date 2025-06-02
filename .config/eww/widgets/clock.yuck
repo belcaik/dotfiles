@@ -1,11 +1,12 @@
-(defpoll time_poll :interval "20s"
-  `date +" %d %b %I:%M %p"`)
-
+(deflisten CLOCKLISTEN :initial '{"date":"", "time":""}' "/home/belcaik/Dev/SabiStat/target/release/SabiStat --clock")
 (defwidget clock []
-  (box :class "clock"
-    time_poll
+  (box
+    :class "clock"
+    :halign "center"    
+    (label :text "${CLOCKLISTEN.time}"
+      :class "time"
+      :halign "end"
+      :tooltip "${CLOCKLISTEN.date}"
+    )
   )
 )
-
-
-
