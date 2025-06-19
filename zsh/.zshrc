@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(sudo git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -741,5 +741,6 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/belcaik/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
+
 
 PATH=~/.console-ninja/.bin:$PATH
