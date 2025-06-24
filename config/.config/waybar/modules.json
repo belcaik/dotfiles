@@ -82,7 +82,7 @@
                 ""
             ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol-qt"
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",

@@ -1,4 +1,4 @@
-@import "mocha.css";
+@import "tokyo-night.css";
 * {
     /* `otf-font-awesome` and SpaceMono Nerd Font are required to be installed for icons */
     font-family: "SpaceMono Nerd Font";
@@ -7,17 +7,18 @@
 
 window#waybar {
     background: transparent;
-    color: @teal;
-    border-radius: 7rem;
-    border-width: 2px;
+    color: @text;
+    border-radius: 5pt;
+    border-width: 1pt;
     border-style: solid;
-    border-color: @teal;
+    border-color: @secondary;
 }
 
 window#waybar.empty #window {
     background-color: transparent;
     padding: 0px;
     border: 0px;
+   
 }
 
 #clock,
@@ -39,9 +40,8 @@ window#waybar.empty #window {
 #power-profiles-daemon,
 #language,
 #mpd {
-	background-color: transparent;
-    padding: 0 10px;
-    border-radius: 7rem;
+    background-color: transparent;
+    padding: 0 8pt;
     /*border-width: 2px;
     border-style: solid;
     border-color: @teal;*/
@@ -67,13 +67,12 @@ window#waybar.empty #window {
 #power-profiles-daemon:hover,
 #language:hover,
 #mpd:hover {
-    background-color: @maroon;
-    color: @brown;
+    color: @accent;
 }
 
 
 #workspaces {
-  border-radius: 7rem;
+  border-radius: 5pt;
   background-color: transparent;
   /*border-width: 2px;
   border-style: solid;
@@ -81,20 +80,21 @@ window#waybar.empty #window {
 }
 
 #workspaces button {
-  color: @teal;
-  border-radius: 7rem;
+  color: @text;
+  border-radius: 5pt;
+  border: none;
 }
 
 #workspaces button.active {
   color: @brown;
-  background-color: @teal;
-  border-radius: 7rem;
+  background-color: @primary;
+  border-radius: 5pt;
 }
 
 #workspaces button:hover {
   color: @brown;
-  background-color: @maroon;
-  border-radius: 7rem;
+  background-color: @accent;
+  border-radius: 5pt;
 }
 
 #custom-arch {
@@ -177,19 +177,18 @@ window#waybar.empty #window {
 
 
   #window {
-  border-radius: 7rem;
-  /*border-width: 2px;
+  /*border-radius: 7rem;
+  border-width: 2px;
   border-style: solid;
   border-color: @teal;*/
   padding: 0 10px;
   background-color: transparent;
-  color: @teal;
+  color: @text;
   margin-left: 5px;
   margin-right: 5px;
 }
 #window:hover {
-    background-color: @maroon;
-    color: @brown;
+    color: @accent;
 }
 #pulseaudio-slider slider {
 	min-width: 0px;
@@ -232,7 +231,7 @@ window#waybar.empty #window {
 }
 
 #mpris {
-	border-radius: 7rem;
+	border: none;
 	background-color: transparent;
 	padding: 0 10px;
 	/*border-width: 2px;
@@ -240,8 +239,8 @@ window#waybar.empty #window {
 	border-color: @teal;*/
 }
 #mpris:hover {
-    background-color: @maroon;
-    color: @brown;
+    background-color: transparent;
+    color: @accent;
 }
 
 #custom-cava_mviz {

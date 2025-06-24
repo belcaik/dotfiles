@@ -2,35 +2,42 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
+    "margin-left": 20,
+    "margin-right": 20,
+    "margin-bottom": -5,
+    "margin-top": 5,
     //"height": 46,// Waybar height (to be removed for auto height)
-    // "width": 1900, // Waybar width
+    // "width": 1500, // Waybar width
     "spacing": 1, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "custom/arch",
-        //"custom/search",
-        "cpu",
-        "memory",
-        "temperature",
-        // "battery",
-        "power-profiles-daemon",
-        "wlr/taskbar",
-        "hyprland/window"
-        
-    ],
+	"custom/arch",
+	"hyprland/workspaces",
+        "hyprland/language",
+
+	"mpris"
+
+	],
     "modules-center": [
-        "mpris",
-        "hyprland/workspaces"
+        
+        "hyprland/window"
     ],
     "modules-right": [
+	"wlr/taskbar",
+	"tray",
+      	//"custom/search",
+        //"cpu",
+        //"memory",
+        //"temperature",
+        // "battery",
+        //"power-profiles-daemon",    
         "idle_inhibitor",
         "pulseaudio",
+ 	"pulseaudio#microphone",
         // "backlight"
-        "network#speed",
+      	// "network#speed",
         "network",
         "bluetooth",
-        "hyprland/language",
-        "tray",
         // "custom/swaync",
         "clock",
         "custom/power"
