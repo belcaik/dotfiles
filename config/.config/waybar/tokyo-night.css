@@ -1,0 +1,44 @@
+/* Tokyo Night Color Palette for Waybar */
+/* Main Colors */
+@define-color red #f7768e;
+@define-color orange #ff9e64;
+@define-color yellow #e0af68;
+@define-color green #9ece6a;
+@define-color teal #73daca;
+@define-color cyan1 #b4f9f8;
+@define-color cyan2 #2ac3de;
+@define-color blue1 #7dcfff;
+@define-color blue2 #7aa2f7;
+@define-color purple #bb9af7;
+
+/* Text Colors */
+@define-color text #c0caf5;
+@define-color foreground #a9b1d6;
+@define-color text-alt #9aa5ce;
+@define-color comment #565f89;
+@define-color param #cfc9c2;
+
+/* Background Colors */
+@define-color background-night #1a1b26;
+@define-color background-storm #24283b;
+@define-color surface #414868;
+
+/* Terminal Colors */
+@define-color terminal-red #f7768e;
+@define-color terminal-yellow #e0af68;
+@define-color terminal-green #73daca;
+@define-color terminal-cyan #7dcfff;
+@define-color terminal-blue #7aa2f7;
+@define-color terminal-magenta #bb9af7;
+@define-color terminal-white #c0caf5;
+@define-color terminal-black #414868;
+
+/* Semantic Aliases for Waybar */
+@define-color background @background-night;
+@define-color primary @blue2;
+@define-color secondary @purple;
+@define-color accent @cyan2;
+@define-color warning @yellow;
+@define-color critical @red;
+@define-color success @green;
+@define-color info @blue1;

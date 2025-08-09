@@ -742,5 +742,8 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
 
 PATH=~/.console-ninja/.bin:$PATH
