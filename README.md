@@ -1,18 +1,22 @@
 # DOTFILES COLLECTION
-This repository contains my personal dotfiles. Feel free to use them as you like.
 
-Is separated into different branches for different operating systems. The `master` branch contains docs about the different branches.
+Arch Linux (Wayland/Hyprland) dotfiles. Use at your own pace and adapt as needed.
 
-## Branches
-| OS | BRANCH |
-|----|--------|
-| linux | [linux branch](https://github.com/belcaik/dotfiles/tree/linux) |
-| windows | [windows branch](https://github.com/belcaik/dotfiles/tree/windows) |
+## Quick Start
 
+Clone to `~/.dotfiles` (or your preferred path), then preview and apply symlinks with GNU Stow from the repo root:
 
-| [starship](https://starship.rs) | Minimal prompt for any shell | linux, windows |
-| [nushell](https://www.nushell.sh) | Modern shell for the GitHub era | linux, windows |
+```bash
+stow -nvt ~ zsh config   # dry-run preview
+stow -vt ~ zsh config    # apply
+```
 
+Check your current running configuration and links:
 
-    
-Make with ❤️ by [belcaik](https://github.com/belcaik)
+```bash
+bash scripts/check-config.sh
+```
+
+See `docs/linux/README.MD` for the full list of tools/programs and Arch installation commands (`pacman`/`paru`).
+
+Made with ❤️ by [belcaik](https://github.com/belcaik)
